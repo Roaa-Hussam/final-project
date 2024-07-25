@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctors</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/a510758819.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
+        rel="stylesheet">
+
+</head>
+<script>
+    var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+    var rootElement = document.documentElement
+    scrollToTopBtn.addEventListener("click", scrollToTop);
+    function scrollToTop() {
+        // Scroll to top logic
+        rootElement.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })
+    }
+    function checkScrollPosition() {
+        const isScrolled = window.scrollY > 0;
+
+        if (isScrolled) {
+            scrollToTopBtn.style.display = "block"; // Show element when scrolled
+        } else {
+            scrollToTopBtn.style.display = "none"; // Hide element when at top (scroll = 0)
+        }
+    }
+
+    // Call the function on initial load
+    checkScrollPosition();
+
+    // Add event listener for scrolling
+    window.addEventListener("scroll", checkScrollPosition);
+</script>
+
+<body>
+    <nav class="bg-white border-gray-200 dark:bg-gray-300 dark:border-gray-300 mb-6 md:ps-28 lg:ps-28 sm:ps-10">
+        <div class="max-w-screen-xl flex flex-wrap justify-between items-centermx-auto p-4">
+            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse  px-4">
+                <img src=" https://dentissimo.cmsmasters.net/dentissimo/wp-content/uploads/sites/3/2024/03/logo.svg"
+                    class="h-8" alt="Flowbite Logo" />
+            </a>
+            <button data-collapse-toggle="navbar-dropdown" type="button"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center justify-self-end text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-dropdown" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+                <ul
+                    class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-300 md:dark:bg-gray-300 dark:border-gray-300">
+                    <li>
+
+                        <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover"
+                            data-dropdown-trigger="hover"
+                            class="flex items-center justify-between w-full py-2 px-3 text-gray-300 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                            type="button">Home <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 4 4 4-4" />
+                            </svg>
+                        </button>
+
+                        <!-- Dropdown menu -->
+                        <div id="dropdownHover"
+                            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                                aria-labelledby="dropdownHoverButton">
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign
+                                        out</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </li>
+                    <li>
+                        <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
+                            data-dropdown-trigger="hover"
+                            class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Services
+                            <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 4 4 4-4" />
+                            </svg>
+                        </button>
+                        <!-- Dropdown menu -->
+                        <div id="dropdownNavbar"
+                            class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-400"
+                                aria-labelledby="dropdownLargeButton">
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                                </li>
+                            </ul>
+                            <div class="py-1">
+                                <a href="#"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
+                                    out</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Our
+                            Doctors</a>
+                    </li>
+                    <li>
+                        <button id="dropdownDe" data-dropdown-toggle="dropdown" data-dropdown-trigger="hover"
+                            class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                            type="button">Pages<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 4 4 4-4" />
+                            </svg>
+                        </button>
+
+                        <!-- Dropdown menu -->
+                        <div id="dropdown"
+                            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDe">
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign
+                                        out</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Blog</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contacts</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="header pb-12">
+        <div class="container">
+            <h1 class=" font-normal text-6xl pb-4  ">Doctors</h1>
+            <p class="text-gray-500 text-base">Meet the talented team of dentists at our clinic, who are dedicated to
+                providing
+                personalized care to
+                each of
+                our patients.</p>
+        </div>
+    </div>
+    <div class="doctors-info ">
+        <div class="container">
+            <div class="doctors">
+                <div class="doctor-card  border-solid border-2 bg-gray-100 ">
+                    <div class="card-header">
+                        <h3 class="font-medium 	text-2xl ">
+                            Mark Hoffman
+                        </h3>
+                        <h6 class="text-gray-400   text-lg pt-2">Cosmetic Dentistry</h6>
+                    </div>
+
+                    <div class="card-img  ">
+                        <img class="rounded-full " src="./img/doc1.jpg" alt="person">
+                    </div>
+
+                    <hr class="line-style">
+                    <div class="card-footer">
+                        <p>Open Profile &#x2198;</p>
+                        <div class="icon">
+                            <i class="fa-brands fa-twitter fa-xl"></i>
+                            <i class="fa-brands fa-linkedin fa-xl"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="doctor-card bg-gray-100">
+                    <div class="card-header">
+                        <h3 class="font-medium 	text-2xl ">
+                            Anne Middleton
+                        </h3>
+                        <h6 class="text-gray-400  text-lg pt-2">Preventive Dentistry</h6>
+                    </div>
+                    <div class="card-img">
+                        <img class="rounded-full " src="./img/doc2.jpg" alt="person">
+                    </div>
+                    <hr class="line-style">
+                    <div class="card-footer">
+                        <p>Open Profile &#x2198;</p>
+                        <div class="icon">
+                            <i class="fa-brands fa-twitter fa-xl"></i>
+                            <i class="fa-brands fa-linkedin fa-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor-card bg-gray-100">
+                    <div class="card-header">
+                        <h3 class="font-medium 	text-2xl ">
+                            John Pierson,RDH
+                        </h3>
+                        <h6 class="text-gray-400  text-lg pt-2">Orthodontic Solutions</h6>
+                    </div>
+                    <div class="card-img">
+                        <img class="rounded-full " src="./img/doc3.jpg" alt="person">
+                    </div>
+                    <hr class="line-style">
+                    <div class="card-footer">
+                        <p>Open Profile &#x2198;</p>
+                        <div class="icon">
+                            <i class="fa-brands fa-twitter fa-xl"></i>
+                            <i class="fa-brands fa-linkedin fa-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor-card bg-gray-100">
+                    <div class="card-header">
+                        <h3 class="font-medium 	text-2xl ">
+                            Amy Holland
+                        </h3>
+                        <h6 class="text-gray-400  text-lg pt-2">Specialized Care</h6>
+                    </div>
+                    <div class="card-img">
+                        <img class="rounded-full " src="./img/doc4.jpg" alt="person">
+                    </div>
+                    <hr class="line-style">
+                    <div class="card-footer">
+                        <p>Open Profile &#x2198;</p>
+                        <div class="icon">
+                            <i class="fa-brands fa-twitter fa-xl"></i>
+                            <i class="fa-brands fa-linkedin fa-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor-card bg-gray-100">
+                    <div class="card-header">
+                        <h3 class="font-medium 	text-2xl   ">
+                            John Ruiz,MD
+                        </h3>
+                        <h6 class="text-gray-400   text-lg pt-2">Specialized Care</h6>
+                    </div>
+                    <div class="card-img">
+                        <img class="rounded-full " src="./img/doc5.jpg" alt="person">
+                    </div>
+                    <hr class="line-style">
+                    <div class="card-footer">
+                        <p>Open Profile &#x2198;</p>
+                        <div class="icon">
+                            <i class="fa-brands fa-twitter fa-xl"></i>
+                            <i class="fa-brands fa-linkedin fa-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor-card bg-gray-100">
+                    <div class="card-header">
+                        <h3 class="font-medium 	text-2xl ">
+                            Tom Adams,RDH
+                        </h3>
+                        <h6 class="text-gray-400  text-lg pt-2">Orthodontic Solutions</h6>
+                    </div>
+                    <div class="card-img">
+                        <img class="rounded-full " src="./img/doc7.jpg" alt="person">
+                    </div>
+                    <hr class="line-style">
+                    <div class="card-footer">
+                        <p>Open Profile &#x2198;</p>
+                        <div class="icon">
+                            <i class="fa-brands fa-twitter fa-xl"></i>
+                            <i class="fa-brands fa-linkedin fa-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section class=" flex">
+        <div class=" img-section   lg:grid lg:grid-cols-1   ">
+            <div class="  mt-8  w-50 ">
+                <img class="w-full rounded-lg" src="./img/dental.jpg" alt="Dental Image 1"><br>
+                <div class="img-flex">
+                    <img class=" dent w-1/2  rounded pe-10" src="img/doc5.jpg" alt="Dental Image 2">
+                    <img class="w-1/2  rounded-lg" src="img/dental2.jpg" alt="Dental Image 3">
+                </div>
+            </div>
+        </div>
+
+        <div class=" sign   me-5  ms-10 w-full mt-5 rounded ps-10 rounded-[20px] ">
+            <form class=" max-w-xl mt-10 max-w-full ps-10">
+                <h2 class="sign-title">Sign up for <br>appointment</h2>
+                <p class="pt-4 pb-10">With years of experience and a commitment to continuing education, our
+                    doctors are
+                    experts in their
+                    field and strive to deliver the highest standard of dental care.</p>
+                <div class="first-input ">
+                    <div class="me-4">
+                        <label for=" TREATMENT" class="block mb-2 text-base font-medium  w-auto text-[ #336e7e] ">
+                            TREATMENT</label>
+                        <input type="text"
+                            class=" shadow-sm  border-[#336e7e]  text-sm rounded-lg  block w-full p-2.5  bg-[#336e7e]   "
+                            placeholder="select Treatment" required />
+                    </div>
+                    <div>
+                        <label for=" text" class="block mb-2 text-base font-medium  w-auto ">Doctor
+                        </label>
+                        <input type="text"
+                            class="shadow-sm  border-[#336e7e]  text-sm rounded-lg  block w-full p-2.5  bg-[#336e7e]"
+                            placeholder="select Doctor" required />
+                    </div>
+                </div>
+                <div class="first-input mt-6 ">
+                    <div class="me-4 ">
+                        <label for=" name" class="block mb-2 text-base font-medium  w-auto  ">
+                            Your Name</label>
+                        <input type="text"
+                            class=" shadow-sm  border-[#336e7e]  text-sm rounded-lg  block w-full p-2.5  bg-[#336e7e]  "
+                            placeholder="Your Name" required />
+                    </div>
+                    <div>
+                        <label for=" phone" class="block mb-2 text-base font-medium  w-auto "> Your Phone
+                        </label>
+                        <input type="tel"
+                            class="shadow-sm  border-[#336e7e]  text-sm rounded-lg  block w-full p-2.5  bg-[#336e7e]"
+                            placeholder="Your Phone" required />
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <label for="email" class="block mb-2 text-base font-medium  w-auto">Your
+                        Email</label>
+                    <input type="email"
+                        class="shadow-sm  border-[#336e7e]  text-sm rounded-lg  block w-full p-2.5  bg-[#336e7e]"
+                        required />
+                </div>
+
+
+                <button type="submit " class="text-black mt-8 rounded-lg bg-[#cbf2fe] p-4 text-base font-medium">Make
+                    an Appointment
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-gray-300 w-full md:mt-72 sm:mt-96 ">
+        <div class="w-full lg:grid lg:grid-cols-3 md:flex sm:flex mb-10">
+            <div class="flex flex-col ps-28">
+                <button class="text-4xl text-start text-gray-600 hover:text-gray-900">
+                    HOME
+                </button>
+                <button class="text-4xl text-start text-gray-600 hover:text-gray-900">
+                    About Us
+                </button>
+                <button class="text-4xl text-start text-gray-600 hover:text-gray-900">
+                    Services
+                </button>
+                <button class="text-4xl text-start text-gray-600 hover:text-gray-900">
+                    Price Guide
+                </button>
+                <button class="text-4xl text-start text-gray-600 hover:text-gray-900">
+                    Contacts
+                </button>
+            </div>
+            <div>
+                <p>
+                    We understand just how closely connected oral health is to your overall health,
+                    confidence,
+                    and
+                    appearance, and we pride ourselves on cultivating a friendly, upbeat dental
+                    environment
+                    where
+                    you
+                    can always feel comfortable in our care.
+                </p>
+            </div>
+            <div class="flex flex-col text-end pe-20 text-gray-600">
+                <p>511 SW 10th Ave 1206,</p>
+                <p>Portland, OR</p>
+                <p>United States</p>
+                <a href="#" class="text-gray-900 font-bold hover:text-gray-600"><i class="fas fa-phone-alt"></i>+1
+                    800-123-1234</a>
+                <a href="#" class="text-gray-900 font-bold hover:text-gray-600"><i
+                        class="fas fa-at"></i>+clinic@example.coms</a>
+            </div>
+        </div>
+
+        <hr>
+        <div class="md:flex lg:flex sm:block justify-between ps-28 pe-20 pt-10">
+            <p>This is a sample website - cmsmasters © 2024 - All Rights Reserved</p>
+            <div class="text-3xl py-3 px-4 mx-2">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-pinterest"></i>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+
+</body>
+
+</html>
